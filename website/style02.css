@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;1,500&family=Sriracha&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Sarabun', sans-serif;
+}
+body
+{
+    margin: 0;
+    background-image: url(../images/ดาบ.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header
+{
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+nav
+{
+    position: relative;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+
+}
+nav ul
+{
+    margin: 0;
+    display: flex;
+
+
+}
+nav ul li
+{
+    list-style: none;
+}
+nav ul li a
+{
+    font-size: 14px;
+    font-weight: 600;
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 10px;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+nav ul li a:hover
+{
+    background: #686868;
+    color: #ffffff;
+    transition: all .3s;
+}
+.logo
+{
+    font-size: 20px;
+    font-weight: 700;
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 10px;
+
+}
+ main {
+            flex: 1; /* ดันให้ footer ลงไปล่าง */
+            display: flex;
+            padding: 20px;
+            box-sizing: border-box;;
+        }
+        section  {
+            flex: 2;
+            color: #ffffff;
+             background-color: rgba(137, 137, 139, 0.2);
+            
+        }
+         
+            
+       
+        article {
+            
+            
+            padding: 15px;
+            margin-bottom: 15px;
+          
+        
+        }
+     
+
+
+
+
+footer
+{
+    width: 100%;
+   
+    
+    display: flex; 
+    justify-content: space-between;
+   
+    background-color: #5170FF;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            clear: both; 
+}
+.col-l
+{
+    display: block;
+    padding-top: 5px;
+}
+.col-r
+{
+    display: block;
+    text-align: center;
+}
+img
+{
+    width: 300px;
+    border-radius: 5px;
+    margin: 10px 0;
+     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+
+.ct10{
+    text-align: center;
+}
+.wrapper img { 
+      width: 100px;
+   position: absolute;
+      top: 30px;   
+      left: 10px;  
+      height: 70px;
+      
+    
+}
+
+html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #sakuraCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }

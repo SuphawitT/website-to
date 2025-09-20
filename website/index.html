@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การเรียนรู้เกี่ยวกับรถจักรยายนต์</title>
+    <link rel="stylesheet" href="style02.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <h1><img src="images/logo01.png" alt="My Website Logo" width="150"></h1>
+    </div>
+    <header>
+            <br> 
+             
+        <nav>
+            <div class="logo">การเรียนรู้เกี่ยวกับรถจักรยายนต์</div>
+            <ul>
+                <li><a href="index.html">หน้าเเรก</a></li>
+                <li><a href="Menu.html">เมนู</a></li>
+                <li><a href="sms.html">ช่องทางการติดต่อ</a></li>
+                <li><a href="login.html">เข้าสู่ระบบ</a></li>
+            </ul>
+        </nav>
+    </header>
+            <br> 
+            <br> 
+            <br> 
+    <main>
+        <section>
+            
+            <h2 class="ct10">เนื้อหาหลักของเว็บไซต์</h2>
+            <article>
+            <br> 
+            <br> 
+            <br> 
+                <br> <h3>นี่คือเนื้อหาหลักของเว็บไซต์</h3>
+                <p>1:การแบ่งปันความรู้การกับจักรยานยนต์<br>
+                    2:ความรู้ทั่วไปเกี่ยวกับจักรยานยนต์<br> 
+                    3:ระบบต่างๆในจักรยานยนต์<br>
+                    4:เครื่องมือช่าง<br>
+                    5:การอธิบายเนื้อหาเกี่ยวกับจักรยานยนต์
+                <br>
+                <br>
+                <br>
+            
+                    
+                </p>
+                <h3>การซ้อมบำรุงรักษาจักรยานยนต์</h3>
+                <p>1:การถ่ายน้ำมันเครื่อง<br>
+                    2:การเปลี่ยนกรองอากาศ<br>
+                    3: การตรวจเช็คระบบเบรกเเละยาง</p><br>
+                
+            </article>
+        </section>
+    </main>
+   <footer>
+          <div class="col-l">
+                <h5>วิชาการสร้างเว็บไซต์ </h5>
+                <h5>Wedsite Creation</h5>
+            </div>
+            <div class="col-r">
+                <h3>วิทยาลัยเทคนิคนครนายก</h3>
+                <h6>NAKHONNAYOKTECHNICAL COLLEGE</h6>
+            </div>
+
+    </footer>
+
+
+  <!-- Canvas สำหรับดอกซากุระ -->
+  <canvas id="sakuraCanvas"></canvas>
+
+  <!-- ใส่โค้ดของคุณตรงนี้ -->
+  <script>
+    const canvas = document.getElementById("sakuraCanvas");
+    const ctx = canvas.getContext("2d");
+    let sakuras = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    function createSakura(x = Math.random() * canvas.width, y = -20, click = false) {
+      sakuras.push({
+        x: x,
+        y: y,
+        size: Math.random() * 10 + 5,
+        speedY: Math.random() * 2 + 1,
+        speedX: Math.random() * 1 - 0.5,
+        opacity: Math.random() * 0.5 + 0.5,
+        rotate: Math.random() * 360,
+        rotateSpeed: Math.random() * 2 - 1,
+        clickSpawn: click
+      });
+    }
+
+    function drawSakura(s) {
+      ctx.save();
+      ctx.globalAlpha = s.opacity;
+      ctx.translate(s.x, s.y);
+      ctx.rotate(s.rotate * Math.PI / 180);
+
+      ctx.fillStyle = "#FFC0CB";
+      ctx.beginPath();
+      for (let i = 0; i < 5; i++) {
+        const angle = i * (Math.PI * 2) / 5;
+        const petalX = Math.cos(angle) * s.size;
+        const petalY = Math.sin(angle) * s.size;
+        ctx.lineTo(petalX, petalY);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function updateSakuras() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      sakuras.forEach((s, index) => {
+        s.y += s.speedY;
+        s.x += s.speedX;
+        s.rotate += s.rotateSpeed;
+
+        drawSakura(s);
+
+        if (s.y > canvas.height + 20 || s.x < -20 || s.x > canvas.width + 20) {
+          sakuras.splice(index, 1);
+        }
+      });
+    }
+
+    setInterval(() => {
+      createSakura();
+    }, 300);
+
+    function animate() {
+      updateSakuras();
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    document.addEventListener("click", function (e) {
+      for (let i = 0; i < 5; i++) {
+        createSakura(e.clientX + Math.random() * 20 - 10, e.clientY + Math.random() * 20 - 10, true);
+      }
+    });
+  </script>
+
+</body>
+</html>
